@@ -32,6 +32,8 @@ export default function Acesso() {
         // Verificar as credenciais de login aqui
         if (email === 'admin@123' && password === '123') {
             navigation.navigate('TelaDeSucesso', { email: email });
+        }else if(email === 'gu@123' && password === '123'){
+            navigation.navigate('TelaDeSucesso', { email: email });
         } else {
             // caso der erro
             Alert.alert('Credenciais incorretas', 'Por favor, verifique seu email e senha.');
@@ -67,16 +69,15 @@ export default function Acesso() {
                             onChangeText={text => setPassword(text)}
                             value={password}
                             secureTextEntry
-                        />
-                        <Button style={styles.buttonCadastro}
-                            title="Cadastrar"
-                            onPress={() => navigation.navigate('Cadastro')}
-                            color={'#880000'}
-                        />
+                        />        
+                            <TouchableOpacity style={styles.buttonacesso} onPress={handleLogin}>
+                                <Text style={styles.buttonText}>Acessar</Text>
+                            </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                            <Text style={styles.buttonText}>Acessar</Text>
-                        </TouchableOpacity>
+                            <TouchableOpacity style={styles.buttonacesso} onPress={() => navigation.navigate('Cadastro')}>
+                                <Text style={styles.buttonText}>Cadastro</Text>
+                            </TouchableOpacity>
+
                         <TouchableOpacity style={styles.buttonRegister}>
                             <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
                         </TouchableOpacity>
@@ -134,6 +135,27 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    buttonacesso: {
+        backgroundColor: '#880000',
+        width: '100%',
+        borderRadius: 4,
+        paddingVertical: 8,
+        marginTop: 14,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom:10,
+    },
+    buttonCadastro: {
+        backgroundColor: '#880000',
+        width: '100%',
+        borderRadius: 4,
+        paddingVertical: 8,
+        marginTop: 14,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom:10,
+        fontFamily:'Oswald',
+    },
     buttonText: {
         fontFamily: 'Oswald',
         color: "#FFF",
@@ -142,12 +164,14 @@ const styles = StyleSheet.create({
     },
     buttonRegister: {
         marginTop: 14,
-        alignSelf: 'center'
+        alignSelf: 'center',
+
     },
     registerText: {
         color: '#a1a1a1'
     },
-    buttonCadastro:{
+    buttonCadastro: {
         backgroundColor: '#880000',
+        top: 10,
     },
 });
