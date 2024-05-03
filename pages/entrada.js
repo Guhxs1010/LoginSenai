@@ -74,11 +74,9 @@ export default function Acesso() {
                                 <Text style={styles.buttonText}>Acessar</Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.buttonacesso} onPress={() => navigation.navigate('Cadastro')}>
-                                <Text style={styles.buttonText}>Cadastro</Text>
-                            </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttonRegister}>
+
+                        <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.navigate('Cadastro')}>
                             <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
                         </TouchableOpacity>
                     </Animatable.View>
